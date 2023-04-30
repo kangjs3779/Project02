@@ -1,5 +1,6 @@
 package com.example.demo.mapper;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.apache.ibatis.annotations.*;
@@ -13,8 +14,9 @@ public interface BoardPro02Mapper {
 			SELECT 
 				*
 			FROM Board
+			LIMIT #{startIndex}, #{listCount}
 			""")
-	public List<BoardPro02> selectAll();
+	public List<BoardPro02> selectAll(Integer startIndex, Integer listCount);
 	
 	@Select("""
 			SELECT
@@ -32,14 +34,27 @@ public interface BoardPro02Mapper {
 	@Update("""
 			UPDATE Board
 			SET 
-				title = ${BoardPro02.title},
-				body = ${BoardPro02.body},
-				writer = ${BoardPro02.writer}
+				title = #{title},
+				body = #{body},
+				writer = #{writer}
 			WHERE
 				id = #{id}
-				
 			""")
-	public Integer modifyById(Integer id, BoardPro02 boardPro02);
+	public Integer modifyById(Integer id, String title, String body, String writer);
+	
+	@Delete("""
+			DELETE FROM Board
+			WHERE id = #{id}
+			""")
+	public Integer delete(Integer id);
+
+	@Insert("""
+			INSERT INTO Board
+				(title, body, writer)
+			VALUES
+				(#{title}, #{body}, #{writer})
+			""")
+	public Integer insertList(String title, String body, String writer);
 
 
 

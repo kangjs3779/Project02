@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,8 +26,10 @@ public class BoardPro02Controller {
 	private BoardPro02Service service;
 	
 	@GetMapping({"boardList", "/"})
-	public String boardList(Model model) {
-		List<BoardPro02> list =  service.selectAll();
+	public String boardList(
+			@RequestParam(value = "currentPage", defaultValue = "1") Integer currentPage,
+			Model model) {
+		List<BoardPro02> list =  service.selectAll(currentPage);
 		
 		model.addAttribute("list", list);
 		
@@ -42,26 +45,68 @@ public class BoardPro02Controller {
 		return "get";
 	}
 	
-	
 	@GetMapping("/modify/{id}")
 	public String modify(
 			@PathVariable("id") Integer id,
-			Model model) {
+			Model model
+			) {
+		// 수정 전 조회하기 
 		BoardPro02 boardPro02 = service.getById(id);
 		model.addAttribute("boardPro02", boardPro02);
-		System.out.println("ok");
+		
 		return "modify";
 	}
 	
 	@PostMapping("/modify/{id}")
-	public String modifyProcess(
-			@PathVariable("id") Integer id
-			
-			) {
-//		boolean ok = service.modifyById(id, boardPro02);
-//		rttr.addFlashAttribute("message", "success");
-		return "get";
+	public String modifyProcess ( 
+			@PathVariable("id") Integer id,
+			String title,
+			String body,
+			String writer,
+			@RequestParam LocalDateTime inserted,
+			RedirectAttributes rttr) {
+		boolean ok = service.modifyById(id, title, body, writer);
+		if(ok) {
+			rttr.addFlashAttribute("message", "수정되었습니다.");
+		} else {
+			rttr.addFlashAttribute("message", "수정이 취소되었습니다.");
+		}
+		return "redirect:/get/" + id;
 	}
+	
+	@PostMapping("/delete")
+	public String delete(
+			@RequestParam("id") Integer id,
+			RedirectAttributes rttr) {
+		boolean ok =  service.delete(id);
+		if(ok) {
+			rttr.addFlashAttribute("message", "성공적으로 삭제되었습니다.");
+		} else {
+			rttr.addFlashAttribute("message", "삭제가 취소되었습니다.");
+		}
+		
+		return "redirect:/boardList";
+	}
+	
+	@GetMapping("add")
+	public void add() {
+		 //add form
+	}
+	
+	@PostMapping("add")
+	public String addProcess(
+			String title,
+			String body,
+			String writer,
+			RedirectAttributes rttr) {
+			
+			service.insertList(title, body, writer);
+			
+			rttr.addFlashAttribute("message", "성공적으로 추가되었습니다.");
+			return "redirect:/boardList";
+	}
+	
+	
 }
 
 
