@@ -12,7 +12,11 @@ public interface BoardPro02Mapper {
 
 	@Select("""
 			SELECT 
-				*
+				id,
+				title,
+				body,
+				writer,
+				inserted
 			FROM Board
 			LIMIT #{startIndex}, #{listCount}
 			""")

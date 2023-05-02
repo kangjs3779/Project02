@@ -42,6 +42,7 @@
 				</tbody>
 			</table>
 		</div>
+		
 		<!-- pagination -->
 		<div class="mx-auto">
 			<nav aria-label="Page navigation example">
@@ -56,7 +57,7 @@
 					</c:forEach>
 					<!-- next button -->
 					<li class="page-item">
-						<a class="page-link" href="#">Next</a>
+						<a class="page-link" href="${pageLink }">Next</a>
 					</li>
 				</ul>
 			</nav>

@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
 import java.time.LocalDateTime;
-import java.util.List;
+import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,9 +29,10 @@ public class BoardPro02Controller {
 	public String boardList(
 			@RequestParam(value = "currentPage", defaultValue = "1") Integer currentPage,
 			Model model) {
-		List<BoardPro02> list =  service.selectAll(currentPage);
+		//게시물 전체보기(한페이지에 10개씩)
+		Map<String, Object> info = service.selectAll(currentPage);
 		
-		model.addAttribute("list", list);
+//		model.addAttribute("list", list);
 		
 		return "boardList";
 	}

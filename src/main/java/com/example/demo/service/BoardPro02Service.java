@@ -1,13 +1,12 @@
 package com.example.demo.service;
 
-import java.time.LocalDateTime;
-import java.util.List;
+import java.util.*;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.*;
 import org.springframework.stereotype.*;
 
-import com.example.demo.domain.BoardPro02;
-import com.example.demo.mapper.BoardPro02Mapper;
+import com.example.demo.domain.*;
+import com.example.demo.mapper.*;
 
 @Service
 public class BoardPro02Service {
@@ -15,11 +14,25 @@ public class BoardPro02Service {
 	@Autowired
 	private BoardPro02Mapper mapper;
 
-	public List<BoardPro02> selectAll(Integer currentPage) {
+	public Map<String, Object> selectAll(Integer currentPage) {
+		// 게시글 전체보기에서 첫줄에 보일 게시글의 인덱스
 		int startIndex = (currentPage - 1) * 10;
+		// 게시글 전체보기에서 보여줄 게시글의 개수
 		int listCount = 10;
+		// 페이지네이션 다음버튼을 위한 가장 오른쪽의 수
+		int rightPagination = ((currentPage / 10) + 1) * 10;
+		// 페이지네이션 이전버튼을 위한 가장 왼쪽의 수
+		int leftPagination = ((currentPage / 10) * 10) + 1;
+		
 		List<BoardPro02> list = mapper.selectAll(startIndex, listCount);
-		return list;
+		
+		Map<String, Object> result = new HashMap<>();
+		result.put("rightPagination", rightPagination);
+		result.put("startIndex", startIndex);
+		result.put("leftPagination", leftPagination);
+		result.put("list", list);
+		
+		return result;
 	}
 
 	public BoardPro02 getById(Integer pageNum) {
