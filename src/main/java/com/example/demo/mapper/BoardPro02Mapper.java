@@ -38,13 +38,13 @@ public interface BoardPro02Mapper {
 	@Update("""
 			UPDATE Board
 			SET 
-				title = #{title},
-				body = #{body},
-				writer = #{writer}
+				title = #{boardPro02.title},
+				body = #{boardPro02.body},
+				writer = #{boardPro02.writer}
 			WHERE
 				id = #{id}
 			""")
-	public Integer modifyById(Integer id, String title, String body, String writer);
+	public Integer modifyById(Integer id, BoardPro02 boardPro02);
 	
 	@Delete("""
 			DELETE FROM Board

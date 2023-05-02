@@ -13,28 +13,27 @@
 </head>
 <body>
 	<d:navbar />
-
-	<h1>${boardPro02.id }번게시글수정</h1>
+	<div class="w-50 mx-auto">
+		<h1>${boardPro02.id }번게시글수정</h1>
+	</div>
 
 	<div class="w-50 mx-auto">
 		<form method="post" id="modifyForm">
-			<div class="form-floating">
+			<div class="form-floating mb-3">
 				<textarea class="form-control" placeholder="Leave a title here" id="title" name="title">${boardPro02.title }</textarea>
 				<label for="title">title</label>
 			</div>
-			<br>
-			<div class="form-floating">
+			<div class="form-floating mb-3">
 				<textarea class="form-control" name="body" placeholder="Leave a comment here" id="body" style="height: 100px">${boardPro02.body }</textarea>
 				<label for="body">Comments</label>
 			</div>
-			<br>
-			<div class="form-floating">
+			<div class="form-floating mb-3">
 				<textarea class="form-control" placeholder="Leave a writer here" id="writer" name="writer">${boardPro02.writer }</textarea>
 				<label for="writer">writer</label>
 			</div>
-			<br>
-			<div class="form-floating">
-				<input type="hidden" class="form-control" placeholder="Leave a title here" id="inserted" name="inserted" value="${boardPro02.inserted }" />
+			<div class="form-floating mb-3">
+				<textarea class="form-control" placeholder="Leave a title here" id="inserted" name="inserted" disabled>${boardPro02.inserted }</textarea>
+				<label for="inserted">inserted</label>
 			</div>
 			<input type="submit" value="change" id="modifyButton" class="btn btn-outline-success" />
 		</form>

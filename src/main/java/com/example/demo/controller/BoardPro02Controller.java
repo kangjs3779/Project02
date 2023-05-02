@@ -30,9 +30,9 @@ public class BoardPro02Controller {
 			@RequestParam(value = "currentPage", defaultValue = "1") Integer currentPage,
 			Model model) {
 		//게시물 전체보기(한페이지에 10개씩)
-		Map<String, Object> info = service.selectAll(currentPage);
+		Map<String, Object> selectAll = service.selectAll(currentPage);
 		
-//		model.addAttribute("list", list);
+		model.addAllAttributes(selectAll);
 		
 		return "boardList";
 	}
@@ -61,12 +61,9 @@ public class BoardPro02Controller {
 	@PostMapping("/modify/{id}")
 	public String modifyProcess ( 
 			@PathVariable("id") Integer id,
-			String title,
-			String body,
-			String writer,
-			@RequestParam LocalDateTime inserted,
+			BoardPro02 boardPro02,
 			RedirectAttributes rttr) {
-		boolean ok = service.modifyById(id, title, body, writer);
+		boolean ok = service.modifyById(id, boardPro02);
 		if(ok) {
 			rttr.addFlashAttribute("message", "수정되었습니다.");
 		} else {

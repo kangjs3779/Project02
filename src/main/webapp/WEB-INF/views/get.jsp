@@ -14,29 +14,26 @@
 <body>
 	<d:navbar />
 	<d:alert />
-
-	<h1>${boardPro02.id }번게시글확인</h1>
 	<div class="w-50 mx-auto">
-		<div class="form-floating">
+		<h1>${boardPro02.id }번게시글확인</h1>
+	</div>
+	<div class="w-50 mx-auto ">
+		<div class="form-floating mb-3">
 			<textarea class="form-control" placeholder="Leave a title here" id="title" name="title" disabled>${boardPro02.title }</textarea>
 			<label for="title">title</label>
 		</div>
-		<br>
-		<div class="form-floating">
+		<div class="form-floating mb-3">
 			<textarea class="form-control" name="body" placeholder="Leave a comment here" id="body" style="height: 100px" disabled>${boardPro02.body }</textarea>
 			<label for="body">Comments</label>
 		</div>
-		<br>
-		<div class="form-floating">
+		<div class="form-floating mb-3">
 			<textarea class="form-control" placeholder="Leave a writer here" id="writer" name="writer" disabled>${boardPro02.writer }</textarea>
 			<label for="writer">writer</label>
 		</div>
-		<br>
-		<div class="form-floating">
+		<div class="form-floating mb-3">
 			<textarea class="form-control" placeholder="Leave a title here" id="inserted" name="inserted" disabled>${boardPro02.inserted }</textarea>
 			<label for="inserted">inserted</label>
 		</div>
-		<br>
 	</div>
 
 	<div class="w-50 mx-auto">

@@ -27,8 +27,8 @@ public class BoardPro02Service {
 		List<BoardPro02> list = mapper.selectAll(startIndex, listCount);
 		
 		Map<String, Object> result = new HashMap<>();
-		result.put("rightPagination", rightPagination);
 		result.put("startIndex", startIndex);
+		result.put("rightPagination", rightPagination);
 		result.put("leftPagination", leftPagination);
 		result.put("list", list);
 		
@@ -40,8 +40,8 @@ public class BoardPro02Service {
 		return boardPro02;
 	}
 
-	public boolean modifyById(Integer id, String title, String body, String writer) {
-		Integer count = mapper.modifyById(id, title ,body, writer);
+	public boolean modifyById(Integer id, BoardPro02 boardPro02) {
+		Integer count = mapper.modifyById(id, boardPro02);
 		return count == 1;
 	}
 	

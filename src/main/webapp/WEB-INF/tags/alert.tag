@@ -4,5 +4,5 @@
 <%@ attribute name="state" %>
 
 	<c:if test="${not empty message }">
-		<div class="alert alert-${state == 'danger' ? 'danger' : 'success' }" role="alert">${message }</div>
+		<div class="w-50  mx-auto alert alert-${state == 'danger' ? 'danger' : 'success' }" role="alert">${message }</div>
 	</c:if>
