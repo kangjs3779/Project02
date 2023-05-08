@@ -1,17 +1,13 @@
 package com.example.demo.service;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
-
 import com.example.demo.domain.Board;
 import com.example.demo.mapper.BoardMapper;
-
-import software.amazon.awssdk.services.s3.S3Client;
 
 @Service
 public class BoardService {
@@ -66,13 +62,9 @@ public class BoardService {
 	}
 
 
-	public int insertBoard(Board board, MultipartFile[] files) {
+	public int insertBoard(Board board) throws Exception {
 		int count = mapper.insertBoard(board);
 		
-		
-		for(MultipartFile file : files) {
-			
-		}
 		return count;
 	}
 

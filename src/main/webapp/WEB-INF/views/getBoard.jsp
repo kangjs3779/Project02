@@ -25,7 +25,7 @@
 				<p>Body : ${board.body }</p>
 			</div>
 			<div class="ui segment">
-				<img class="ui medium circular image" src="/images/wireframe/square-image.png">
+				<img class="ui medium circular image" src="">
 			</div>
 
 			<div class="ui segment">

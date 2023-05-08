@@ -67,13 +67,8 @@ public interface BoardMapper {
 			""")
 	public int countAll();
 
-	@Insert("""
-			INSERT INTO ImageFile
-				(fileName, boardId)
-			VALUES
-				(#{files}, #{boardId})
-			""")
-	public int insertFiles( Integer boardId);
+	
+
 
 }
 
