@@ -13,30 +13,29 @@
 <link rel="stylesheet" type="text/css" href="js/semantic/semantic.min.css">
 </head>
 <body>
-	<d:navbar currentPage="add"></d:navbar>
+	<d:navbar currentPage="join"></d:navbar>
 
 	<div class="mx-auto w-50">
-		<h1>게시글 추가하기</h1>
-		<form action="add" method="post" class="ui form" enctype="multipart/form-data">
-			<div class="field">
-				<label for="title">Title</label>
-				<input type="text" id="title" name="title">
+		<h1>회원가입</h1>
+		<div class="ui form">
+			<div class="required field">
+				<label for="id">ID</label>
+				<input type="text" placeholder="id" id="id">
 			</div>
-			<div class="field">
-				<label for="body">Body</label>
-				<textarea type="text" name="body"></textarea>
+			<div class="required field">
+				<label for="password">Password</label>
+				<input type="password" placeholder="password" id="password">
 			</div>
-			<div class="field">
-				<label for="img">Files</label>
-				<input type="file" name="files" id="img" class="form-control" id="img" aria-describedby="inputGroupFileAddon03" aria-label="Upload" multiple="multiple" accept="image/*">
-
+			<div class="required field">
+				<label for="address">Address</label>
+				<input type="text" placeholder="address" id="address">
 			</div>
-			<div class="field">
-				<label for="writer">Writer</label>
-				<input type="text" id="writer" name="writer" />
+			<div class="required field">
+				<label for="number">Number</label>
+				<input type="text" placeholder="010-xxxx-xxxx" id="number">
 			</div>
-			<button class="ui yellow button" type="submit">Submit</button>
-		</form>
+			<button class="ui yellow button" type="submit">Join</button>
+		</div>
 	</div>
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>

@@ -8,49 +8,39 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>my project</title>
+<title>Insert title here</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="js/semantic/semantic.min.css">
 </head>
 <body>
-	<d:navbar />
-	<div class="w-50 mx-auto">
-		<h1>${boardPro02.id }번게시글수정</h1>
-	</div>
+	<d:navbar currentPage="modify"></d:navbar>
 
-	<div class="w-50 mx-auto">
-		<form method="post" id="modifyForm">
-			<div class="form-floating mb-3">
-				<textarea class="form-control" placeholder="Leave a title here" id="title" name="title">${boardPro02.title }</textarea>
-				<label for="title">title</label>
+	<div class="mx-auto w-50">
+		<h1>${board.id }번 게시글 수정하기</h1>
+		<form action="modify" method="post" class="ui form">
+			<div class="field">
+				<label for="title">Title</label>
+				<input type="text" id="title" name="title" value="${board.title }">
 			</div>
-			<div class="form-floating mb-3">
-				<textarea class="form-control" name="body" placeholder="Leave a comment here" id="body" style="height: 100px">${boardPro02.body }</textarea>
-				<label for="body">Comments</label>
+			<div class="field">
+				<label for="body">Body</label>
+				<textarea type="text" name="body">${board.body }</textarea>
 			</div>
-			<div class="form-floating mb-3">
-				<textarea class="form-control" placeholder="Leave a writer here" id="writer" name="writer">${boardPro02.writer }</textarea>
-				<label for="writer">writer</label>
+			<div class="field">
+				<label for="writer">Writer</label>
+				<input type="text" id="writer" name="writer" value="${board.writer }" readonly />
 			</div>
-			<div class="form-floating mb-3">
-				<textarea class="form-control" placeholder="Leave a title here" id="inserted" name="inserted" disabled>${boardPro02.inserted }</textarea>
-				<label for="inserted">inserted</label>
+			<div class="field">
+				<label for="inserted">Inserted</label>
+				<input type="datetime-local" id="inserted" name="inserted" value="${board.inserted }" readonly />
 			</div>
-			<input type="submit" value="change" id="modifyButton" class="btn btn-outline-success" />
+			<input type="hidden" name="id" value="${board.id }">
+			<button class="ui yellow button" type="submit">Submit</button>
 		</form>
 	</div>
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-	<script type="text/javascript">
-		$("#modifyButton").click(function(e) {
-			e.preventDefault();
-
-			const ok = confirm("수정하시겠습니까?");
-			if (ok) {
-				$("#modifyForm").submit();
-			}
-		});
-	</script>
 </body>
 </html>
