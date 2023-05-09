@@ -24,13 +24,15 @@ public class BoardController {
 	private BoardService service;
 	
 	
-	@GetMapping("boardList")
-	public void boardList(
+	@GetMapping(value = { "boardList", "/"})
+	public String boardList(
 			Model model,
 			@RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum) {
 		Map<String, Object> info = service.selectAllBoard(pageNum);
 		
 		model.addAllAttributes(info);
+		
+		return "";
 	}
 	
 	@GetMapping("getBoard")
