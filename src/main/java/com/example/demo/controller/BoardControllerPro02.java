@@ -81,8 +81,9 @@ public class BoardControllerPro02 {
 	
 	@PostMapping("add")
 	public String addProcess(
-			Board board) throws Exception {
-		int count1 = service.insertBoard(board);
+			Board board,
+			@RequestParam("files") MultipartFile[] files) throws Exception {
+		int count1 = service.insertBoard(board, files);
 		
 		return "redirect:/boardList";
 	}

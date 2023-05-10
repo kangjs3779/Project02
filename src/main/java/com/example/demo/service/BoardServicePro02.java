@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.*;
+
 import com.example.demo.domain.Board;
 import com.example.demo.mapper.BoardMapper;
 
@@ -62,8 +64,10 @@ public class BoardServicePro02 {
 	}
 
 
-	public int insertBoard(Board board) throws Exception {
+	public int insertBoard(Board board, MultipartFile[] files) throws Exception {
 		int count = mapper.insertBoard(board);
+		
+		for()
 		
 		return count;
 	}
