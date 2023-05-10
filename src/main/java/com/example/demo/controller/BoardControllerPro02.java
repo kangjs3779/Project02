@@ -14,14 +14,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.example.demo.domain.Board;
-import com.example.demo.service.BoardService;
+import com.example.demo.service.BoardServicePro02;
 
 @Controller
 @RequestMapping("/")
-public class BoardController {
+public class BoardControllerPro02 {
 	
 	@Autowired
-	private BoardService service;
+	private BoardServicePro02 service;
 	
 	
 	@GetMapping(value = { "boardList", "/"})
@@ -32,7 +32,7 @@ public class BoardController {
 		
 		model.addAllAttributes(info);
 		
-		return "";
+		return "boardList";
 	}
 	
 	@GetMapping("getBoard")

@@ -10,7 +10,7 @@ import com.example.demo.domain.Board;
 import com.example.demo.mapper.BoardMapper;
 
 @Service
-public class BoardService {
+public class BoardServicePro02 {
 
 	@Autowired
 	private BoardMapper mapper;

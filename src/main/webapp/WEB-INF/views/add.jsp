@@ -28,7 +28,7 @@
 			</div>
 			<div class="field">
 				<label for="img">Files</label>
-				<input type="file" name="files" id="img" class="form-control" id="img" aria-describedby="inputGroupFileAddon03" aria-label="Upload" multiple="multiple" accept="image/*">
+				<input type="file" name="files" id="img" class="form-control" id="img" aria-describedby="inputGroupFileAddon03" aria-label="Upload" multiple accept="image/*">
 
 			</div>
 			<div class="field">
