@@ -88,7 +88,10 @@ public class BoardControllerPro02 {
 		return "redirect:/boardList";
 	}
 	
-	
+	@GetMapping("test")
+	public void method1() {
+		
+	}
 }
 
 
