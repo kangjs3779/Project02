@@ -30,6 +30,10 @@
 				<label for="inputPasswordCheck">기업명</label>
 			</div>
 			<div class="form-floating mb-3">
+				<input value="" type="password" class="form-control" id="inputPasswordCheck" ></input>
+				<label for="inputPasswordCheck">업종명</label>
+			</div>
+			<div class="form-floating mb-3">
 				<input value="${companyMember.businessNumber }" type="number" class="form-control" id="inputBusinessNumber" ></input>
 				<label for="inputBusinessNumber">사업자등록번호</label>
 			</div>
