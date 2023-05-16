@@ -30,8 +30,12 @@
 				<label for="inputPasswordCheck">비밀번호 확인</label>
 			</div>
 			<div class="form-floating mb-3">
-				<input type="password" class="form-control" placeholder="Leave a comment here" id="inputPasswordCheck"></input>
-				<label for="inputPasswordCheck">기업명</label>
+				<input type="password" class="form-control" placeholder="Leave a comment here" id="inputCompanyName"></input>
+				<label for="inputCompanyName">기업명</label>
+			</div>
+			<div class="form-floating mb-3">
+				<input type="password" class="form-control" placeholder="Leave a comment here" id="inputCategory"></input>
+				<label for="inputCategory">업종명</label>
 			</div>
 			<div class="form-floating mb-3">
 				<input type="number" class="form-control" placeholder="Leave a comment here" id="inputBusinessNumber"></input>
