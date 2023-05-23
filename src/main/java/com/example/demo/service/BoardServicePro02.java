@@ -66,9 +66,7 @@ public class BoardServicePro02 {
 
 	public int insertBoard(Board board, MultipartFile[] files) throws Exception {
 		int count = mapper.insertBoard(board);
-		
-		for()
-		
+				
 		return count;
 	}
 
