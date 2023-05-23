@@ -1,4 +1,4 @@
-package com.example.againJOB;
+package com.example.membery;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
