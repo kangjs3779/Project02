@@ -15,4 +15,14 @@ public class Controller {
 	public void main() {
 		
 	}
+	
+	@RequestMapping("petsitterDetail")
+	public void petsitter() {
+		
+	}
+	
+	@RequestMapping("testCalendar")
+	public void test() {
+		
+	}
 }
